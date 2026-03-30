@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script defer src="script.js"></script>
+
+    <style type="text/tailwindcss">
+      html {
+        background-color: #1a1a1a;
+        background-image: linear-gradient(135deg, #132f41 15%, #461616 50%, #15461c 100%);
+        color: white;
+      }
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      canvas,
+      div {
+        touch-action: none;
+      }
+    </style>
+
+    <title>Personal Dashboard</title>
+  </head>
+  <body>
+    <br />
+    <h1 class="mt-40 text-4xl font-bold text-clifford text-center bg-linear-135 from-[#2d6992] from-42% via-[#832525] via-49% to-[#278534] to-58% bg-clip-text text-transparent">
+      Cool Interactive Widgets
+    </h1>
+
+    <br />
+    <br />
+    <br />
+    <div id="widget-container" class="flex flex-row justify-center">
+      <!-- clock -->
+      <div
+        id="clock-widget-container"
+        class="bg-blue-400 mr-10 ml-10 w-75 h-75 rounded-[100rem] flex justify-center items-center"
+      >
+        <!-- canvas -->
+        <canvas
+          id="clock"
+          width="300px"
+          height="300px"
+          class="bg-white w-70 h-70 rounded-[100rem]"
+        ></canvas>
+      </div>
+      <!-- music -->
+      <div
+        id="music-widget-container"
+        class="bg-[#ff4a53] mr-10 ml-10 w-75 h-75 rounded-[0.5rem]"
+      >
+        <img src="Images/music-note.png" class="w-40 relative top-5 left-15" />
+        <button
+          onclick="triggerFileInput()"
+          class="w-30 relative top-10 left-22.5 bg-red-500 rounded-[0.5rem] outline-2 hover:bg-[#ff636c]"
+        >
+          Upload Music
+        </button>
+        <input
+          type="file"
+          id="file-input"
+          accept="audio/*"
+          style="display: none"
+        />
+        <audio
+          class="relative top-12 w-72 left-1.5"
+          id="audio-player"
+          src="Audio/interstellar - pandora., chillwithme, & cødy.mp3"
+          controls
+          loop
+        ></audio>
+      </div>
+      <!-- drawing -->
+      <div
+        id="drawing-widget-container"
+        class="bg-lime-500 mr-10 ml-10 w-75 h-75 rounded-[0.5rem] flex items-center flex-col"
+      >
+        <canvas
+          id="drawing"
+          width="500px"
+          height="500px"
+          class="w-65 h-65 rounded-[0.5rem] bg-white mt-1.5 mb-1"
+        ></canvas>
+        <div class="flex justify-center">
+          <button id="color-swap" class="mr-5 text-white bg-black w-15 h-6 rounded-[1.5rem] outline-2 hover:bg-gray-800" onclick="swapColors()">black<button>
+          <button
+            id="clear-drawing"
+            class="bg-lime-500 w-15 h-6 rounded-[1.5rem] outline-2 hover:bg-lime-400" onclick="clearCanvasFlag()"
+          >
+            clear
+          </button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+
